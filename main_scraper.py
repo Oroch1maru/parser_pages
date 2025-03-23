@@ -24,7 +24,7 @@ class MainScraper:
         session.headers.update(headers)
         return session.get(self.url)
 
-    def scraper_main_site(self):
+    def __scraper_main_site(self):
         req = self.__connect_to_site()
         soup = BeautifulSoup(req.text, "html.parser")
         list_shop = soup.select(".row.produkt-sidebar-row .box #left-category-shops a")
@@ -39,11 +39,11 @@ class MainScraper:
             if leaflets:
                 self.list_leaflets.extend(leaflets)
 
-    def save_to_json(self, filename="output.json"):
+    def __save_to_json(self, filename="output.json"):
         with open(filename, "w", encoding="utf-8") as file:
             json.dump([leaflet.to_dict() for leaflet in self.list_leaflets], file, ensure_ascii=False, indent=4)
 
     def run(self):
-        self.scraper_main_site()
-        self.save_to_json()
+        self.__scraper_main_site()
+        self.__save_to_json()
         self.driver.quit()

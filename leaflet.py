@@ -8,7 +8,7 @@ class Leaflet:
         self.shop_name = shop_name
         self.valid_from = valid_from
         self.valid_to = valid_to
-        self.parsed_time = parsed_time if parsed_time is not None else datetime.datetime.now().strftime("%m-%d-%Y, %H:%M:%S")
+        self.parsed_time = parsed_time if parsed_time is not None else datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
 
     def to_dict(self):
         return {

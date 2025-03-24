@@ -46,11 +46,13 @@ class ShopScraper:
         try:
             start_date, end_date = map(str.strip, date_text.split("-"))
             parsed_start_date = datetime.strptime(start_date, "%d.%m.%Y")
-            start_date = parsed_start_date.strftime("%Y-%m-%d")
             parsed_end_date = datetime.strptime(end_date, "%d.%m.%Y")
-            end_date = parsed_end_date.strftime("%Y-%m-%d")
+
             if parsed_start_date.date() <= datetime.now().date() <= parsed_end_date.date():
-                return start_date,end_date
+                return (
+                    parsed_start_date.strftime("%Y-%m-%d"),
+                    parsed_end_date.strftime("%Y-%m-%d")
+                )
         except:
             if "von" in date_text:
                 match = re.search(r"\d{2}\.\d{2}\.\d{4}", date_text)

@@ -1,8 +1,7 @@
-import json
 import re
+from datetime import datetime
 
 from leaflet import Leaflet
-from datetime import datetime
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait

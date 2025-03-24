@@ -1,8 +1,9 @@
-from shop_scraper import ShopScraper
 import json
-import time
-from bs4 import BeautifulSoup
 import requests
+
+from shop_scraper import ShopScraper
+
+from bs4 import BeautifulSoup
 from selenium import webdriver
 
 class MainScraper:
